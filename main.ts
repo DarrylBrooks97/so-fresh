@@ -12,7 +12,11 @@ import { virtualSheet } from "twind/sheets";
 
 const sheet = virtualSheet();
 sheet.reset();
-setup({ ...config, sheet });
+setup({ ...config, theme:{
+  extend:{
+    'background-color': '#fafafa',
+  }
+}, sheet });
 
 function render(ctx: RenderContext, render: InnerRenderFunction) {
   const snapshot = ctx.state.get("twind") as unknown[] | null;
@@ -23,4 +27,4 @@ function render(ctx: RenderContext, render: InnerRenderFunction) {
   ctx.state.set("twind", newSnapshot);
 }
 
-await start(manifest, { render });
+await start(manifest, { render, port: 3000 });
