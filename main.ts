@@ -12,11 +12,7 @@ import { virtualSheet } from "twind/sheets";
 
 const sheet = virtualSheet();
 sheet.reset();
-setup({ ...config, theme:{
-  extend:{
-    'background-color': '#fafafa',
-  }
-}, sheet });
+setup({ ...config, sheet });
 
 function render(ctx: RenderContext, render: InnerRenderFunction) {
   const snapshot = ctx.state.get("twind") as unknown[] | null;
