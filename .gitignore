@@ -1,2 +1,5 @@
 # Private
 .env
+
+# Auto generated
+.DS_Store
