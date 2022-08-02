@@ -4,7 +4,7 @@ import { tw } from "@twind";
 
 export default function Header() {
   return (
-    <div class={tw`sticky top-0 mx-auto max-w-7xl items-center z-90`}>
+    <div class={tw`sticky top-0 mx-auto items-center z-90`}>
       <div
         class={tw`w-max cursor-pointer`}
         onClick={() => window.location.href = ""}
