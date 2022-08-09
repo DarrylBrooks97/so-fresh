@@ -1,14 +1,9 @@
 /** @jsx h */
-import { h } from "preact";
-import { useState } from "preact/hooks";
-import { tw } from "@twind";
+import {tw} from 'twind';
+import { h, ComponentChildren } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { movies } from "../utils/constants.ts";
-import Header from "../islands/Header.tsx";
-import MovieList from "../islands/MovieList.tsx";
-import Content from "../islands/Content.tsx";
-// import LayoutContent from "../islands/LayoutContent.tsx";
-import { Movie } from "../types.ts";
+import Content from '../islands/Content.tsx';
+import Header from '../islands/Header.tsx';
 
 export const handler: Handlers = {
   GET(_req, ctx) {
@@ -26,38 +21,26 @@ export const handler: Handlers = {
     return ctx.render();
   },
 };
-// const MovieTopics = ["Home", "Action", "Drama", "Comedy", "Horror"];
 
-// const Layout = (props: {movies: Movie[], setFilteredMovies: (t: any)=> void}) => {
-//   return (
-//     <div class={tw`flex flex-col md:flex-row mx-auto md:py-3`}>
-//       <div
-//         class={tw`w-full mb-3 md:mb-0 md:w-auto md:min-h-screen shadow-2xl`}
-//       >
-//         <Input movies={props.movies} setFilteredMovies={props.setFilteredMovies} />
-//         <div class={tw`hidden md:block p-3 flex items-center justify-center`}>
-//           <p class={tw`text-xl text-center w-full h-[100px]`}>
-//             Saved
-//           </p>
-//         </div>
-//       </div>
-//       <div class={tw`grow md:px-3`}>
-//         {props.children}
-//       </div>
-//     </div>
-//   );
-// };
-
-export default function Home(props: PageProps) {
-  const [filteredMovies, setFilteredMovies] = useState<Movie[]>(movies);
-
-  // const { data: {movies} }:any = props;
-  // console.log({movies});
-
+const RootLayout = ({children}: {children: ComponentChildren }) => {
   return (
-    <div class={tw`bg-white h-full w-full p-6`}>
-      <Header />
-      <Content />
+    <div>
+      <head>
+        <title>Home</title>
+      </head>
+      <div class={tw`w-full`}>
+      <Header/>
+      <div class={tw`px-3 grow`}>
+      {children}
+      </div>
+      </div>
     </div>
+  );
+};
+export default function Home(props: PageProps) {
+  return (
+    <RootLayout>
+      <Content />
+    </RootLayout>
   );
 }
