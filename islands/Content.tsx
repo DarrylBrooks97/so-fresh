@@ -7,7 +7,6 @@ import { Movie } from "../types.ts";
 import SideBar from "./SiderBar.tsx";
 import MovieList from "../islands/MovieList.tsx";
 
-
 const Content = () => {
   const [filteredMovies, setFilteredMovies] = useState<Movie[]>(movies);
 
@@ -20,7 +19,7 @@ const Content = () => {
   };
 
   return (
-    <div class={tw`flex flex-col md:flex-row md:py-3`}>
+    <div class={tw`flex flex-col md:flex-row md:py-2`}>
       <SideBar filter={filter} />
       <MovieList movies={filteredMovies} />
     </div>

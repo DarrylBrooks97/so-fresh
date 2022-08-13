@@ -1,9 +1,9 @@
 /** @jsx h */
-import {tw} from 'twind';
-import { h, ComponentChildren } from "preact";
+import { tw } from "twind";
+import { ComponentChildren, h } from "preact";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import Content from '../islands/Content.tsx';
-import Header from '../islands/Header.tsx';
+import Content from "../islands/Content.tsx";
+import Header from "../islands/Header.tsx";
 
 export const handler: Handlers = {
   GET(_req, ctx) {
@@ -22,17 +22,17 @@ export const handler: Handlers = {
   },
 };
 
-const RootLayout = ({children}: {children: ComponentChildren }) => {
+const RootLayout = ({ children }: { children: ComponentChildren }) => {
   return (
     <div>
       <head>
         <title>Home</title>
       </head>
       <div class={tw`w-full`}>
-      <Header/>
-      <div class={tw`px-3 grow`}>
-      {children}
-      </div>
+        <Header />
+        <div class={tw`px-3`}>
+          {children}
+        </div>
       </div>
     </div>
   );
