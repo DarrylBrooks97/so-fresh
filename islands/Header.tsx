@@ -4,9 +4,12 @@ import { tw } from "@twind";
 
 export default function Header() {
   return (
-    <div class={tw`p-3 sticky top-0 mx-auto items-center z-90`}>
+    <div
+      class={tw
+        `p-3 sticky top-0 mx-auto bg items-center z-90 backdrop-blur-sm bg-white`}
+    >
       <div
-        class={tw`w-max cursor-pointer`}
+        class={tw(`w-max cursor-pointer`)}
         onClick={() => window.location.href = ""}
       >
         <p
