@@ -7,13 +7,20 @@ const MovieList = (props: { movies: Movie[] }) => {
   const { movies } = props;
 
   return (
-    <div class={tw`grid grid-cols-2 md:grid-cols-5 gap-6`}>
+    <div
+      class={tw
+        `grid grid-cols-2 max md:grid-cols-4 md:h-full gap-6 w-full md:pl-3`}
+    >
       {movies.map((movie) => (
         <div
-          className={tw
-            `p-6 rounded-md bg-gray-400 bg-[url('https://image.tmdb.org/t/p/w200/${movie.backdrop_path}')]`}
+          class={tw`py-6 text-center rounded-md overflow-hidden`}
           key={movie.id}
         >
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+            alt={movie.title}
+            class={tw`w-full h-full `}
+          />
           {movie.title}
         </div>
       ))}
