@@ -15,6 +15,7 @@ const MovieList = (props: { movies: Movie[] }) => {
         <div
           class={tw`py-6 text-center rounded-md overflow-hidden`}
           key={movie.id}
+          onClick={() => window.location.href = `/movie/${movie.id}`}
         >
           <img
             src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
